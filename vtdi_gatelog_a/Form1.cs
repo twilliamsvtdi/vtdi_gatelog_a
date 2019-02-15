@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace vtdi_gatelog_a
@@ -24,6 +17,7 @@ namespace vtdi_gatelog_a
 
         private void logInToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            
             LogInForm logIn = new LogInForm();
             logIn.MdiParent = this;
             logIn.Show();
@@ -59,6 +53,18 @@ namespace vtdi_gatelog_a
         private void userLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{btn_clicked(sender)} Clicked");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LogInForm logIn = new LogInForm();
+            logIn.MdiParent = this;
+            logIn.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

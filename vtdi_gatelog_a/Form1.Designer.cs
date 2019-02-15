@@ -30,8 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userManagementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.schedulingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gateLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guestListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +37,8 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gateReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManagementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // userManagementToolStripMenuItem
             // 
@@ -65,26 +66,10 @@
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.userManagementToolStripMenuItem.Text = "Users";
             // 
-            // logInToolStripMenuItem
-            // 
-            this.logInToolStripMenuItem.Image = global::vtdi_gatelog_a.Properties.Resources.User_noHalo_16x;
-            this.logInToolStripMenuItem.Name = "logInToolStripMenuItem";
-            this.logInToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.logInToolStripMenuItem.Text = "Log In";
-            this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click_1);
-            // 
-            // userManagementToolStripMenuItem1
-            // 
-            this.userManagementToolStripMenuItem1.Image = global::vtdi_gatelog_a.Properties.Resources.hh1;
-            this.userManagementToolStripMenuItem1.Name = "userManagementToolStripMenuItem1";
-            this.userManagementToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
-            this.userManagementToolStripMenuItem1.Text = "User Management";
-            this.userManagementToolStripMenuItem1.Click += new System.EventHandler(this.userManagementToolStripMenuItem1_Click);
-            // 
             // schedulingToolStripMenuItem
             // 
             this.schedulingToolStripMenuItem.Name = "schedulingToolStripMenuItem";
-            this.schedulingToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.schedulingToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.schedulingToolStripMenuItem.Text = "Scheduling";
             this.schedulingToolStripMenuItem.Click += new System.EventHandler(this.schedulingToolStripMenuItem_Click);
             // 
@@ -134,6 +119,22 @@
             this.userLogsToolStripMenuItem.Text = "User Logs";
             this.userLogsToolStripMenuItem.Click += new System.EventHandler(this.userLogsToolStripMenuItem_Click);
             // 
+            // logInToolStripMenuItem
+            // 
+            this.logInToolStripMenuItem.Image = global::vtdi_gatelog_a.Properties.Resources.User_noHalo_16x;
+            this.logInToolStripMenuItem.Name = "logInToolStripMenuItem";
+            this.logInToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.logInToolStripMenuItem.Text = "Log In";
+            this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click_1);
+            // 
+            // userManagementToolStripMenuItem1
+            // 
+            this.userManagementToolStripMenuItem1.Image = global::vtdi_gatelog_a.Properties.Resources.hh1;
+            this.userManagementToolStripMenuItem1.Name = "userManagementToolStripMenuItem1";
+            this.userManagementToolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
+            this.userManagementToolStripMenuItem1.Text = "User Management";
+            this.userManagementToolStripMenuItem1.Click += new System.EventHandler(this.userManagementToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,6 +145,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "VTDI Gate Log Application";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

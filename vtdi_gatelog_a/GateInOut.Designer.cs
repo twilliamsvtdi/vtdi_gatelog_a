@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbComments = new System.Windows.Forms.TextBox();
             this.cbVehicle = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPlateNumber = new System.Windows.Forms.TextBox();
@@ -37,14 +38,13 @@
             this.lblFname = new System.Windows.Forms.Label();
             this.lblPlateNumber = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.lblItemToDeclare = new System.Windows.Forms.Label();
             this.cbItemsToDeclare = new System.Windows.Forms.ComboBox();
             this.lblPurpose = new System.Windows.Forms.Label();
             this.cbPurpose = new System.Windows.Forms.ComboBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.lblComments = new System.Windows.Forms.Label();
-            this.tbComments = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,6 +85,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(682, 573);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // tbComments
+            // 
+            this.tbComments.Location = new System.Drawing.Point(243, 317);
+            this.tbComments.Multiline = true;
+            this.tbComments.Name = "tbComments";
+            this.tbComments.Size = new System.Drawing.Size(436, 97);
+            this.tbComments.TabIndex = 19;
             // 
             // cbVehicle
             // 
@@ -162,25 +171,6 @@
             this.tbFirstName.Size = new System.Drawing.Size(436, 22);
             this.tbFirstName.TabIndex = 6;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(3, 420);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(137, 75);
-            this.btnSubmit.TabIndex = 14;
-            this.btnSubmit.Text = "SUBMIT";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(243, 420);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(128, 75);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
             // lblItemToDeclare
             // 
             this.lblItemToDeclare.AutoSize = true;
@@ -224,6 +214,25 @@
             this.cbPurpose.Size = new System.Drawing.Size(436, 24);
             this.cbPurpose.TabIndex = 9;
             // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(3, 420);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(137, 75);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "SUBMIT";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(243, 420);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(128, 75);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // lblComments
             // 
             this.lblComments.AutoSize = true;
@@ -233,14 +242,6 @@
             this.lblComments.Size = new System.Drawing.Size(223, 20);
             this.lblComments.TabIndex = 18;
             this.lblComments.Text = "Additional Comments";
-            // 
-            // tbComments
-            // 
-            this.tbComments.Location = new System.Drawing.Point(243, 317);
-            this.tbComments.Multiline = true;
-            this.tbComments.Name = "tbComments";
-            this.tbComments.Size = new System.Drawing.Size(436, 97);
-            this.tbComments.TabIndex = 19;
             // 
             // pictureBox1
             // 
@@ -261,6 +262,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "GateInOut";
             this.Text = "Gate In Out Form";
+            this.Load += new System.EventHandler(this.GateInOut_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
