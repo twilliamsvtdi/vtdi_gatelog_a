@@ -31,7 +31,13 @@ namespace vtdi_gatelog_a
             else
             {
                 MessageBox.Show($"Welcome {username}");
+                //Declaring a an object of Type Form1, which isthe parent of the login form
+                var parent = (Form1)this.MdiParent;
+                //Change the property in Form1 to true.
+                parent.isLoggedIn = true;
                 this.Close();
+                
+                
             }
 
         }
