@@ -16,7 +16,7 @@ namespace vtdi_gatelog_a
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm()); 
+            Application.Run(new Form1()); 
         }
     }
 }
