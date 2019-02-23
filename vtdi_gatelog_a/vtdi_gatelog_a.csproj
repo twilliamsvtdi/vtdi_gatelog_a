@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,10 +61,19 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GateInOut.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GateLogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GateInOut.Designer.cs">
-      <DependentUpon>GateInOut.cs</DependentUpon>
+    <Compile Include="GateLogForm.Designer.cs">
+      <DependentUpon>GateLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsToDeclare.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -65,11 +83,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurposeOfVisit.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleType.cs">
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vtdi_gate_log.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vtdi_gate_log.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vtdi_gate_log.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vtdi_gate_log.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vtdi_gate_log.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vtdi_gate_log.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GateInOut.resx">
-      <DependentUpon>GateInOut.cs</DependentUpon>
+    <EmbeddedResource Include="GateLogForm.resx">
+      <DependentUpon>GateLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
@@ -84,6 +129,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,14 +139,35 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="vtdi_gate_log.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>vtdi_gate_log.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="vtdi_gate_log.edmx.diagram">
+      <DependentUpon>vtdi_gate_log.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gatelog.sql" />
     <Content Include="Resources\heart_logo.png" />
     <Content Include="Resources\hh1.PNG" />
     <Content Include="Resources\User_noHalo_16x.png" />
+    <Content Include="vtdi_gate_log.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>vtdi_gate_log.edmx</DependentUpon>
+      <LastGenOutput>vtdi_gate_log.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="vtdi_gate_log.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>vtdi_gate_log.edmx</DependentUpon>
+      <LastGenOutput>vtdi_gate_log.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

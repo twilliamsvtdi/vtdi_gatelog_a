@@ -21,18 +21,39 @@ namespace vtdi_gatelog_a
         {
             // You can always use the variable types that 
             // you are familair with. (string, int, etc...)
-            string username = tbUsername.Text;
+            var username = tbUsername.Text;
             var password = tbPassword.Text;
 
-            if (username != "admin" || password != "pass")
-            {
-                MessageBox.Show("Invalid Credentials");
-            }
-            else
+            //Declaring an object of the database model
+            var ctx = new vtdi_gate_log_dbEntities1();
+            //Declare a variable to store the result of the query.
+            //The code below checks the Users table in the database and returns
+            // true or false for the condition in the lambda expression.
+            var user = ctx.Users.Any(q => q.Username == username 
+                && q.Password == password);
+
+            //Check if a true value was returned from the user check and 
+            //grant access. If false, then contrinue to restrict.
+            if(user)
             {
                 MessageBox.Show($"Welcome {username}");
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Invalid Credentials");
+            }
+
+
+            //if (username != "admin" || password != "pass")
+            //{
+            //    MessageBox.Show("Invalid Credentials");
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"Welcome {username}");
+            //    this.Close();
+            //}
 
         }
 

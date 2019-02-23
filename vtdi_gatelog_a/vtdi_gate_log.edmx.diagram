@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="179958b737de4e9c98cff1312ca2044f" Name="Diagram1">
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.GateInOut" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.Gender" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.ItemsToDeclare" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.PurposeOfVisit" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.User" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.VehicleType" Width="1.5" PointX="3" PointY="7.5" />
+        <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_ItemsToDeclare" />
+        <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_Purpose" />
+        <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_Users" />
+        <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_VehicleType" />
+        <AssociationConnector Association="vtdi_gate_log_dbModel.FK_Users_Genders" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
