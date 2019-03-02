@@ -7,11 +7,11 @@
       <Diagram DiagramId="179958b737de4e9c98cff1312ca2044f" Name="Diagram1">
         <EntityTypeShape EntityType="vtdi_gate_log_dbModel.GateInOut" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="vtdi_gate_log_dbModel.Gender" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.ItemsToDeclare" Width="1.5" PointX="3" PointY="5.25" />
-        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.PurposeOfVisit" Width="1.5" PointX="3" PointY="9.875" />
-        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.ItemsToDeclare" Width="1.5" PointX="1.125" PointY="4.125" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.PurposeOfVisit" Width="1.5" PointX="5.5" PointY="5.375" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.sysdiagram" Width="1.5" PointX="7.25" PointY="3.625" />
         <EntityTypeShape EntityType="vtdi_gate_log_dbModel.User" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.VehicleType" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="vtdi_gate_log_dbModel.VehicleType" Width="1.5" PointX="3" PointY="5" />
         <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_ItemsToDeclare" />
         <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_Purpose" />
         <AssociationConnector Association="vtdi_gate_log_dbModel.FK_GateInOut_Users" />

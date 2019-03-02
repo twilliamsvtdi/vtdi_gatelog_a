@@ -9,6 +9,8 @@ namespace vtdi_gatelog_a
         {
             InitializeComponent();
         }
+        public bool isLoggedIn = false;
+
         private string btn_clicked(object sender)
         {
             var ctrl = (ToolStripMenuItem)sender;
@@ -25,46 +27,83 @@ namespace vtdi_gatelog_a
 
         private void userManagementToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            if (isLoggedIn)
+                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void schedulingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            if (isLoggedIn)
+                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void guestListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            if (isLoggedIn)
+                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void gateInOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GateLogForm gateLog = new GateLogForm();
-            gateLog.MdiParent = this;
-            gateLog.Show();
+            if (this.isLoggedIn)
+            {
+                GateLogForm gateInOut = new GateLogForm();
+                gateInOut.MdiParent = this;
+                gateInOut.Show();
+            }
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void gateReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            if (isLoggedIn)
+                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void userLogsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            if (isLoggedIn)
+                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            else
+            {
+                ShowLoginForm();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LogInForm logIn = new LogInForm();
-            logIn.MdiParent = this;
-            logIn.Show();
+            ShowLoginForm();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void ShowLoginForm()
+        {
+            LogInForm logIn = new LogInForm();
+            logIn.MdiParent = this;
+            logIn.Show();
         }
     }
 }
