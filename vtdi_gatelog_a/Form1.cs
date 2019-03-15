@@ -9,7 +9,8 @@ namespace vtdi_gatelog_a
         {
             InitializeComponent();
         }
-        public bool isLoggedIn = false;
+        //Make sure you change back to false!
+        public bool isLoggedIn = true;
 
         private string btn_clicked(object sender)
         {
@@ -28,7 +29,11 @@ namespace vtdi_gatelog_a
         private void userManagementToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (isLoggedIn)
-                MessageBox.Show($"{btn_clicked(sender)} Clicked");
+            {
+                UserManagement userManagement = new UserManagement();
+                userManagement.MdiParent = this;
+                userManagement.Show();
+            }
             else
             {
                 ShowLoginForm();
@@ -91,7 +96,7 @@ namespace vtdi_gatelog_a
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ShowLoginForm();
+            //ShowLoginForm();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
