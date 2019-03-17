@@ -63,6 +63,57 @@ namespace vtdi_gatelog_a
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //try {...} catch {...} is how you handle exceptions. I t is always a good idea to wrap complex operations inside
+            //this code block and monitor for any errors that might appear and prevent program crashes. 
+            try
+            {
+                //Collect data from the form
+                var fname = tbFirstName.Text;
+                var lname = tbLastName.Text;
+                var email = tbEmailAddress.Text;
+                var username = tbUsername.Text;
+                var gender = Convert.ToInt32(cbGenders.SelectedValue);
+
+                var rand = new Random();
+                //This is my random generation of a password. I am using the first letter of the given first name,
+                //the last name and a random number generated between 1 and 100.
+                //This password NEEDS TO BE ENCRYPTED!!!! We will cover that
+                var password = $"{fname[0]}{lname}{rand.Next(0, 100)}";
+                //Validate minimum data is collected, as well as any other validation that you may want to enforce.
+                if (isFormInvalid())
+                {
+                    MessageBox.Show("Please validate all data before submission!");
+                }
+                //Do further validations to checck for username and email address
+                else if (CheckEmail(email) || CheckUserName(username))
+                {
+                    MessageBox.Show("A user exists with this email/username!");
+                }
+                else
+                {
+                    var user = new User
+                    {
+                        FirstName = fname,
+                        LastName = lname,
+                        Email = email,
+                        Username = username,
+                        GenderId = gender,
+                        Password = password,
+                        DateCreated = DateTime.Now
+                    };
+
+                    _dbContext.Users.Add(user);
+                    _dbContext.SaveChanges();
+                    //Functions to Reset the fields to blank and reload all the data in the GridView
+                    //The reload makes the changes appear near real-time.
+                    RefreshGridView();
+                    ResetForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There has been a fatal error: {ex.Message}");
+            }
             
 
         }
