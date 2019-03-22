@@ -13,6 +13,8 @@ namespace vtdi_gatelog_a
     public partial class UserManagement : Form
     {
         private vtdi_gate_log_dbEntities1 _dbContext;
+        private int rowid;
+
         public UserManagement()
         {
             InitializeComponent();
@@ -118,8 +120,6 @@ namespace vtdi_gatelog_a
 
         }
 
-        
-
         void ResetForm()
         {
             tbFirstName.Clear();
@@ -158,6 +158,109 @@ namespace vtdi_gatelog_a
         bool isFormInvalid()
         {
             return String.IsNullOrEmpty(tbEmailAddress.Text) || String.IsNullOrEmpty(tbUsername.Text) || cbGenders.SelectedItem == null ;
+        }
+
+        private void gvUsers_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Retrieve the selected row as an object.
+                //The gridview allows multiple rows to be selected and so we are specifying that we
+                //only want the first one in a possible sequence of many
+                var row = gvUsers.SelectedRows[0];
+                //Cast the row cell values. We can refer to the specific cell via the column name
+                //and retrieve the value. We then need to cast it to the data type we intend to store
+                rowid = (int)row.Cells["Id"].Value;
+                tbFirstName.Text = row.Cells["FirstName"].Value.ToString();
+                tbLastName.Text = row.Cells["LastName"].Value.ToString();
+                tbUsername.Text = row.Cells["Username"].Value.ToString();
+                tbEmailAddress.Text = row.Cells["Email"].Value.ToString();
+                //Retrieve the Gender Value...which is the string name value
+                var rowGender = row.Cells["Name"].Value.ToString();
+                //Perform database lookup to get the gender's id, based on the name being displayed
+                var gender = _dbContext.Genders.FirstOrDefault(q => q.Name == rowGender).Id;
+                //Bind the retrieved id to the combobox's selected value. 
+                cbGenders.SelectedValue = gender;
+            }
+            catch (Exception)
+            {
+
+                //throw;
+            }
+            
+        }
+
+        private void btnResetForm_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Validate minimum data is collected, as well as any other validation that you may want to enforce.
+                if (isFormInvalid())
+                {
+                    MessageBox.Show("Please validate all data before submission!");
+                }
+                else
+                {
+                    //Collect data from the form
+                    var fname = tbFirstName.Text;
+                    var lname = tbLastName.Text;
+                    var email = tbEmailAddress.Text;
+                    var username = tbUsername.Text;
+                    var gender = Convert.ToInt32(cbGenders.SelectedValue);
+
+                    var user = _dbContext.Users.Find(rowid);
+                    if (user != null)
+                    {
+                        user.FirstName = fname;
+                        user.LastName = lname;
+                        user.Email = email;
+                        user.Username = username;
+                        user.GenderId = gender;
+
+                        _dbContext.SaveChanges();
+                        RefreshGridView();
+                        ResetForm();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found!");
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There has been a fatal error: {ex.Message}");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var user = _dbContext.Users.Find(rowid);
+                if(user != null)
+                {
+                    var deleteResult = _dbContext.Users.Remove(user);
+                    _dbContext.SaveChanges();
+                    RefreshGridView();
+                    ResetForm();
+                }
+                else
+                {
+                    MessageBox.Show("User not found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There has been a fatal error: {ex.Message}");
+            }
         }
     }
 }

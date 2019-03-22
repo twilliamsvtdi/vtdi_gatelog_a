@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnCreateUser = new System.Windows.Forms.Button();
+            this.btnResetForm = new System.Windows.Forms.Button();
             this.cbGenders = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnCreateUser);
+            this.splitContainer1.Panel1.Controls.Add(this.btnResetForm);
             this.splitContainer1.Panel1.Controls.Add(this.cbGenders);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.btnSave);
@@ -87,14 +87,15 @@
             this.splitContainer1.SplitterDistance = 416;
             this.splitContainer1.TabIndex = 0;
             // 
-            // btnCreateUser
+            // btnResetForm
             // 
-            this.btnCreateUser.Location = new System.Drawing.Point(16, 458);
-            this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(159, 52);
-            this.btnCreateUser.TabIndex = 13;
-            this.btnCreateUser.Text = "Reset Form";
-            this.btnCreateUser.UseVisualStyleBackColor = true;
+            this.btnResetForm.Location = new System.Drawing.Point(16, 458);
+            this.btnResetForm.Name = "btnResetForm";
+            this.btnResetForm.Size = new System.Drawing.Size(159, 52);
+            this.btnResetForm.TabIndex = 13;
+            this.btnResetForm.Text = "Reset Form";
+            this.btnResetForm.UseVisualStyleBackColor = true;
+            this.btnResetForm.Click += new System.EventHandler(this.btnResetForm_Click);
             // 
             // cbGenders
             // 
@@ -112,6 +113,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete User";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -131,6 +133,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update User";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label6
             // 
@@ -223,7 +226,6 @@
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Search User";
             this.btnSearch.UseVisualStyleBackColor = true;
-
             // 
             // textBox1
             // 
@@ -240,6 +242,7 @@
             this.gvUsers.RowTemplate.Height = 24;
             this.gvUsers.Size = new System.Drawing.Size(712, 431);
             this.gvUsers.TabIndex = 0;
+            this.gvUsers.SelectionChanged += new System.EventHandler(this.gvUsers_SelectionChanged);
             // 
             // UserManagement
             // 
@@ -281,6 +284,6 @@
         private System.Windows.Forms.DataGridView gvUsers;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnCreateUser;
+        private System.Windows.Forms.Button btnResetForm;
     }
 }
